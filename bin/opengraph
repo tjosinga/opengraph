@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+$:.unshift(File.expand_path(File.dirname(__FILE__) + '/../lib/'))
+
+require 'json'
+require 'uri'
+require 'opengraph'
+
+url = ARGV[0]
+
+def usage
+	puts "\033[1mUsage: opengraph [url]\033[0m\n"
+	puts "Shows the Open Graph information of the given website, using the opengraph gem of Intridea Inc.\n"
+end
+
+
+if url.nil? || url.empty?
+	usage
+elsif url =~ /\A#{URI::regexp(['http', 'https'])}\z/
+	data = OpenGraph.fetch(url)
+    puts (data.nil? || data === false) ? "No (valid) Open Graph tags found." : JSON.pretty_generate(data)
+else
+	puts "Invalid url..."
+    exit 1
+end

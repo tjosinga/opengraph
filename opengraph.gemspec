@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "lib/opengraph.rb",
+     "bin/opengraph",
      "opengraph.gemspec",
      "spec/examples/partial.html",
      "spec/examples/rottentomatoes.html",
@@ -33,6 +34,7 @@ Gem::Specification.new do |s|
      "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/intridea/opengraph}
+  s.executables = ["opengraph"]
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
